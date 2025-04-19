@@ -3,12 +3,10 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\OrderResource\Pages;
+use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 use App\Filament\Resources\OrderResource\Widgets\OrderStats;
 use App\Models\Order;
 use App\Models\Product;
-use Filament\Forms;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
 use Filament\Forms\Form;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Placeholder;
@@ -20,7 +18,6 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\ViewAction;
@@ -137,7 +134,7 @@ class OrderResource extends Resource
                                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                                     ->columnSpan(4)
                                     ->reactive()
-                                    ->afterStateUpdated(function ($state, Set $set) {
+                                    ->afterStateUpdated(function ($state, $set) {
                                         $product = Product::find($state);
                                         $price = $product ? $product->price : 0;
                                         $set('unit_amount', $price);
@@ -152,7 +149,7 @@ class OrderResource extends Resource
                                     ->minValue(1)
                                     ->columnSpan(2)
                                     ->live()
-                                    ->afterStateUpdated(function ($state, Set $set, Get $get) {
+                                    ->afterStateUpdated(function ($state, $set, $get) {
                                         $set('total_amount', $state * $get('unit_amount'));
                                     }),
 
@@ -172,9 +169,9 @@ class OrderResource extends Resource
                                     ->columnSpan(3),
                             ])
                             ->columns(12)
-                            ->afterStateUpdated(function (Set $set, Get $get) {
+                            ->afterStateUpdated(function ($set, $get) {
                                 $total = 0;
-                                foreach ($get('items') ?? [] as $index => $item) {
+                                foreach ($get('items') ?? [] as $item) {
                                     $total += $item['total_amount'] ?? 0;
                                 }
                                 $set('grand_total', $total);
@@ -182,9 +179,9 @@ class OrderResource extends Resource
 
                         Placeholder::make('grand_total_placeholder')
                             ->label('Total Keseluruhan')
-                            ->content(function (Get $get, Set $set) {
+                            ->content(function ($get, $set) {
                                 $total = 0;
-                                foreach ($get('items') ?? [] as $index => $item) {
+                                foreach ($get('items') ?? [] as $item) {
                                     $total += $item['total_amount'] ?? 0;
                                 }
                                 $set('grand_total', $total);
@@ -193,7 +190,7 @@ class OrderResource extends Resource
 
                         Placeholder::make('total_sales_placeholder')
                             ->label('Total Harga Item')
-                            ->content(function (Get $get) {
+                            ->content(function ($get) {
                                 $totalSales = 0;
                                 foreach ($get('items') ?? [] as $item) {
                                     $unit = $item['unit_amount'] ?? 0;
@@ -283,7 +280,12 @@ class OrderResource extends Resource
             ]);
     }
 
-
+    public static function getRelations(): array
+    {
+        return [
+            AddressRelationManager::class,
+        ];
+    }
 
     public static function getNavigationBadge(): ?string
     {
@@ -301,14 +303,7 @@ class OrderResource extends Resource
             'index' => Pages\ListOrders::route('/'),
             'create' => Pages\CreateOrder::route('/create'),
             'view' => Pages\ViewOrder::route('/{record}'),
-            'edit' => Pages\EditOrder::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getHeaderWidgets(): array
-    {
-        return [
-            OrderStats::class,
+            'edit' => Pages\EditOrder::route('/{record}/edit'),  // Perbaikan ada di sini
         ];
     }
 }
