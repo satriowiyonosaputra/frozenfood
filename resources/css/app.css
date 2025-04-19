@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-dots-darker {
+    background-image: url("data:image/svg+xml,%3Csvg...");
+}
+
+.bg-dots-lighter {
+    background-image: url("data:image/svg+xml,%3Csvg...");
+}
