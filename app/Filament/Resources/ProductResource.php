@@ -3,29 +3,29 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Forms\Form;
+use Filament\Tables\Table;
+use Illuminate\Support\Str;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\IconColumn;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Form;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\MarkdownEditor;
-use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\Fieldset;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
-use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Support\Str;
-use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction;
 
 class ProductResource extends Resource
 {
@@ -157,7 +157,7 @@ class ProductResource extends Resource
                     ->label('Aktif')
                     ->boolean(),
 
-                IconColumn::make('create_at')
+                IconColumn::make('created_at')
                     ->label('Dibuat Pada')
                     ->boolean()
                     ->sortable()
@@ -186,8 +186,8 @@ class ProductResource extends Resource
                 ])
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make()->label('Hapus Terpilih'),
+                BulkActionGroup::make([
+                    DeleteBulkAction::make()->label('Hapus Terpilih'),
                 ]),
             ]);
     }

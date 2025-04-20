@@ -24,7 +24,7 @@ class AddressRelationManager extends RelationManager
                 TextInput::make('first_name')
                 ->required()
                 ->maxLength(255),
-                
+
                 TextInput::make('last_name')
                 ->required()
                 ->maxLength(255),
@@ -60,7 +60,7 @@ class AddressRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('fullname')
                 ->label('Full Name'),
-                
+
                 TextColumn::make('phone'),
                 TextColumn::make('city'),
                 TextColumn::make('state'),

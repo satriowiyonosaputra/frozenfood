@@ -25,6 +25,8 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Actions\DeleteBulkAction; // Import yang diperlukan
 use Illuminate\Database\Eloquent\Builder;
 
 class OrderResource extends Resource
@@ -274,8 +276,8 @@ class OrderResource extends Resource
                 ]),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                BulkActionGroup::make([  // Menggunakan BulkActionGroup yang benar
+                    DeleteBulkAction::make(),  // Menambahkan DeleteBulkAction
                 ]),
             ]);
     }
@@ -303,7 +305,7 @@ class OrderResource extends Resource
             'index' => Pages\ListOrders::route('/'),
             'create' => Pages\CreateOrder::route('/create'),
             'view' => Pages\ViewOrder::route('/{record}'),
-            'edit' => Pages\EditOrder::route('/{record}/edit'),  // Perbaikan ada di sini
+            'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
     }
 }
