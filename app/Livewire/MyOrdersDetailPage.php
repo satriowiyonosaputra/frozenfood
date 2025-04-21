@@ -31,4 +31,4 @@ class MyOrdersDetailPage extends Component
             'order' => $order,
         ]);
     }
-}
+ff}
