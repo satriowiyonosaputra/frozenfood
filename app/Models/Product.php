@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\ProductImage;
 
 class Product extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'category_id',
         'brand_id',
@@ -30,13 +30,6 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-    public function addToCart($productId)
-    {
-        // Tambahkan ke keranjang...
-        // (pastikan helper keranjangmu sudah berjalan)
-
-        session()->flash('success', 'Produk berhasil ditambahkan ke keranjang!');
     }
 
     public function brand()

@@ -4,47 +4,43 @@ namespace App\Livewire;
 
 use App\Helpers\CartManagement;
 use App\Models\Product;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Product Detail - Westside')]
 class ProductDetailPage extends Component
 {
     public $slug;
     public $quantity = 1;
 
-    // Fungsi untuk inisialisasi slug
+    public function increaseQty()
+    {
+        $this->quantity++;
+    }
+
+    public function decreaseQty()
+    {
+        if ($this->quantity > 1) {
+            $this->quantity--;
+        }
+    }
+
+    public function addToCart($product_id)
+    {
+        $total_count = CartManagement::addItemToCartWithQty($product_id, $this->quantity);
+        $this->dispatch('update-cart-count', total_countId: $total_count);
+        $this->dispatch('product-added', message: 'Produk berhasil ditambahkan ke keranjang!');
+    }
+
     public function mount($slug)
     {
         $this->slug = $slug;
     }
 
-    // Fungsi untuk menambah kuantitas
-    public function increaseQty()
-    {
-        $this->quantity++; // Menambah kuantitas
-    }
-
-    // Fungsi untuk mengurangi kuantitas
-    public function decreaseQty()
-    {
-        if ($this->quantity > 1) {
-            $this->quantity--; // Mengurangi kuantitas, tidak boleh kurang dari 1
-        }
-    }
-
-    // Fungsi untuk menambahkan produk ke keranjang
-    public function addToCart($productId)
-    {
-        $product = Product::findOrFail($productId);
-        // Ganti ini sesuai cara kamu mengelola cart
-        CartManagement::add($product, $this->quantity);
-
-        session()->flash('success', 'Produk ditambahkan ke keranjang!');
-    }
-
-    // Render tampilan halaman produk
     public function render()
     {
-        $product = Product::where('slug', $this->slug)->firstOrFail();
-        return view('livewire.product-detail-page', compact('product'));
+        return view('livewire.product-detail-page', [
+            'product' => Product::where('slug', $this->slug)->firstOrFail(),
+        ]);
     }
 }

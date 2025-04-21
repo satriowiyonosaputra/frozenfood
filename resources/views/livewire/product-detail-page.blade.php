@@ -70,16 +70,30 @@
                                 Keranjang</span>
                             <span wire:loading wire:target='addToCart({{ $product->id }})'>Loading...</span>
                         </button>
-
-                        {{-- Free Shipping Info --}}
-                        <div class="flex items-center mt-6 text-gray-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 3h18v13H3V3zM16 21h-1a3 3 0 01-6 0H5a3 3 0 116 0h2a3 3 0 116 0z" />
-                            </svg>
-                            <span>Pengiriman Gratis</span>
+                        <div
+                        <div
+                        x-data="{ show: false, message: '' }"
+                        x-on:product-added.window="
+                            message = $event.detail.message;
+                            show = true;
+                            setTimeout(() => show = false, 3000);
+                        "
+                        x-show="show"
+                        x-transition
+                        class="fixed inset-0 flex items-center justify-center z-50"
+                        style="display: none;"
+                    >
+                        <div class="bg-white border border-gray-300 text-gray-800 px-6 py-4 rounded-xl shadow-lg w-[90%] max-w-sm text-center">
+                            <div class="flex justify-center mb-2">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <div class="text-base font-medium" x-text="message"></div>
                         </div>
+                    </div>
+
+
                     </div>
                 </div>
 

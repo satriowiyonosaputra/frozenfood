@@ -56,7 +56,7 @@
       <!-- End Col -->
 
       <div class="relative ms-4">
-        <img class="w-full rounded-md" src="{{ asset('assets/storage/brands/ioo.PNG') }}" alt="Image Description">
+        <img class="w-full rounded-md" src="{{ asset('assets/storage/brands/ioo.png') }}" alt="Image Description">
 
 
         <!-- SVG-->
@@ -240,7 +240,7 @@
         <div class="p-4 md:p-5">
           <div class="flex justify-between items-center">
             <div class="flex items-center">
-              <img class="h-[2.375rem] w-[2.375rem] rounded-full" src="{{ url('storage',$category->image)}}" alt="{{ $category->name}}">
+                <img class="h-[2.375rem] w-[2.375rem] rounded-full" src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}">
               <div class="ms-3">
                 <h3 class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
                 {{$category->name}}

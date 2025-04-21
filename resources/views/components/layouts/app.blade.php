@@ -1,62 +1,61 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <!DOCTYPE html>
+    <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Frozen Food - Toko Online Makanan Beku">
-    <meta name="author" content="FrozenFood Team">
-    <meta name="keywords" content="frozen food, makanan beku, toko online">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Frozen Food - Toko Online Makanan Beku">
+        <meta name="author" content="FrozenFood Team">
+        <meta name="keywords" content="frozen food, makanan beku, toko online">
 
-    <title>{{ $title ?? 'FrozenFood' }}</title>
+        <title>{{ $title ?? 'FrozenFood' }}</title>
 
-    <!-- Vite Assets -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <!-- Vite Assets -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- External Scripts & Libraries -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- External Scripts & Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Livewire Styles -->
-    @livewireStyles
-</head>
 
-<body class="bg-slate-200 dark:bg-white">
+        <!-- Livewire Styles -->
+        @livewireStyles
+    </head>
 
-    <!-- Navbar -->
-    @livewire('partials.navbar')
+    <body class="bg-slate-200 dark:bg-white">
 
-    <!-- Main Content -->
-    <main>
-        {{ $slot }}
-    </main>
+        <!-- Navbar -->
+        @livewire('partials.navbar')
 
-    <!-- Footer -->
-    @livewire('partials.footer')
+        <!-- Main Content -->
+        <main>
+            {{ $slot }}
+        </main>
 
-    <!-- Livewire Scripts -->
-    @livewireScripts
+        <!-- Footer -->
+        @livewire('partials.footer')
 
-    <!-- Custom Animation -->
-    <style>
-        @keyframes zoomFade {
-            0% {
-                transform: scale(0.95);
-                opacity: 0;
+        <!-- Livewire Scripts -->
+        @livewireScripts
+
+        <!-- Custom Animation -->
+        <style>
+            @keyframes zoomFade {
+                0% {
+                    transform: scale(0.95);
+                    opacity: 0;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
             }
-            100% {
-                transform: scale(1);
-                opacity: 1;
+
+            .animate-zoomFade {
+                animation: zoomFade 1s ease-out forwards;
             }
-        }
+        </style>
 
-        .animate-zoomFade {
-            animation: zoomFade 1s ease-out forwards;
-        }
-    </style>
+    </body>
 
-</body>
-
-</html>
-    
+    </html>

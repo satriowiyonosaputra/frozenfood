@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83ba2eda67471880d7730ff10e5394d7",
+    "content-hash": "1d9721268f1bd2cb682d2540493b31d8",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1963,16 +1963,16 @@
         },
         {
             "name": "jantinnerezo/livewire-alert",
-            "version": "v4.0.0",
+            "version": "v4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jantinnerezo/livewire-alert.git",
-                "reference": "e50e9461c0eb943f35d080ca2beed39e53056f1e"
+                "reference": "c1f3477f6d22d8bb88247028c6bc97fee24a679f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/e50e9461c0eb943f35d080ca2beed39e53056f1e",
-                "reference": "e50e9461c0eb943f35d080ca2beed39e53056f1e",
+                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/c1f3477f6d22d8bb88247028c6bc97fee24a679f",
+                "reference": "c1f3477f6d22d8bb88247028c6bc97fee24a679f",
                 "shasum": ""
             },
             "require": {
@@ -2021,9 +2021,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jantinnerezo/livewire-alert/issues",
-                "source": "https://github.com/jantinnerezo/livewire-alert/tree/v4.0.0"
+                "source": "https://github.com/jantinnerezo/livewire-alert/tree/v4.0.4"
             },
-            "time": "2025-03-04T03:13:35+00:00"
+            "time": "2025-03-20T06:47:20+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
