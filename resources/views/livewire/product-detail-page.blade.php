@@ -51,7 +51,7 @@
 
                         {{-- Quantity Control --}}
                         <div class="w-32 mb-6">
-                            <label class="block text-sm font-medium text-white mb-1">Total</label>
+                            <label class="block text-sm font-medium text-black mb-1">Total</label>
                             <div class="flex items-center rounded-md overflow-hidden border border-gray-300 bg-white">
                                 <button wire:click='decreaseQty'
                                     class="w-8 h-8 text-base font-bold text-black hover:bg-gray-200 transition">-</button>
@@ -92,7 +92,6 @@
                             <div class="text-base font-medium" x-text="message"></div>
                         </div>
                     </div>
-
 
                     </div>
                 </div>

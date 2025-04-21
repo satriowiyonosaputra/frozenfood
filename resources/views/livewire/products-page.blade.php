@@ -113,6 +113,7 @@
                                             </span>
                                         </p>
                                     </div>
+                                    
                                     <div class="flex justify-center p-4 border-t border-black-300 dark:border-black-700">
 
                                         <a wire:click.prevent='addToCart({{ $product->id }})' href="#"
@@ -124,6 +125,7 @@
                                                 </path>
                                             </svg><span wire:loading.remove wire:target='addToCart({{ $product->id }})' > Tambah ke Keranjang</span><span wire:loading wire:target='addToCart({{ $product->id }})'>Adding....</span>
                                         </a>
+
 
                                     </div>
                                 </div>
