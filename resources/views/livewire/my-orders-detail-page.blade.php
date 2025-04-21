@@ -117,8 +117,7 @@
                                     <td class="px-6 py-4">
                                         <div class="flex items-center gap-4">
                                             <!-- Ukuran Gambar diatur agar lebih proporsional -->
-                                            <img class="h-12 w-12 rounded object-cover"
-                                                src="{{ url('storage', $item->product->images[0]) }}"
+                                            <img src="{{ asset('storage/' . $item->product->images[0]) }}" class="w-16 h-16 rounded object-cover border" alt="{{ $item->product->name }}">
                                                 alt="{{ $item->product->name }}">
                                             <span class="font-medium text-gray-800">{{ $item->product->name }}</span>
                                         </div>

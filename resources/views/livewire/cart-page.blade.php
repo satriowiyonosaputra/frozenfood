@@ -22,11 +22,17 @@
                                     <!-- Produk -->
                                     <td class="py-4">
                                         <div class="flex items-center gap-4">
-                                            <img src="{{ url('storage', $item['image']) }}"
-                                                class="w-16 h-16 rounded object-cover border" alt="{{ $item['name'] }}">
-                                            <span class="font-medium text-gray-800">{{ $item['name'] }}</span>
+                                            <img
+                                                src="{{ asset('storage/' . $item['image']) }}"
+                                                class="w-16 h-16 rounded object-cover border"
+                                                alt="{{ $item['name'] }}"
+                                            >
+                                            <span class="font-medium text-gray-800">
+                                                {{ $item['name'] }}
+                                            </span>
                                         </div>
                                     </td>
+
 
                                     <!-- Harga -->
                                     <td class="py-4 text-center">
