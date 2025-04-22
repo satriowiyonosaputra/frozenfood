@@ -31,8 +31,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://wa.me/6282135513134" target="_blank" class="hover:text-white transition">
-                        📞 +62 8213 5513 134
+                    <a href="https://wa.me/6281215139093" target="_blank" class="hover:text-white transition">
+                        📞 +62 812 1513 9093
                     </a>
                 </li>
                 <li>
