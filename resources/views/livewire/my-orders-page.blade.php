@@ -7,9 +7,7 @@
                     <table class="min-w-full divide-y divide-blue-100 dark:divide-blue-100">
                         <thead>
                             <tr>
-                                <th scope="col"
-                                    class="px-6 py-3 text-start text-xs font-medium text-black-500 uppercase">ID Pesanan
-                                </th>
+
                                 <th scope="col"
                                     class="px-6 py-3 text-start text-xs font-medium text-black-500 uppercase">Tanggal
                                 </th>
@@ -42,7 +40,7 @@
                                             '<span class="bg-green-500 py-1 px-3 rounded text-black shadow">Dikirim</span>';
                                     } elseif ($order->status == 'delivered') {
                                         $status =
-                                            '<span class="bg-gray-700 py-1 px-3 rounded text-black shadow">Diterima</span>';
+                                            '<span class="bg-white-700 py-1 px-3 rounded text-black shadow">Diterima</span>';
                                     } elseif ($order->status == 'cancelled') {
                                         $status =
                                             '<span class="bg-red-500 py-1 px-3 rounded text-black shadow">Dibatalkan</span>';

@@ -34,10 +34,7 @@
                         Beranda
                     </a>
 
-                    <a href="/categories"
-                        class="font-medium py-3 md:py-6 text-2xl transition-colors duration-200 {{ Request::is('categories*') ? 'text-blue-600' : 'text-black hover:text-gray-600' }}">
-                        Kategori
-                    </a>
+                 
 
                     <a href="/products"
                         class="font-medium py-3 md:py-6 text-2xl transition-colors duration-200 {{ Request::is('products*') ? 'text-blue-600' : 'text-black hover:text-gray-600' }}">

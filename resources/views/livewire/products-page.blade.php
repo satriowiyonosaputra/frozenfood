@@ -1,6 +1,40 @@
 <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+
     <section class="py-10 dark:bg-blue-100 font-poppins dark:bg-white-800 rounded-lg">
         <div class="px-4 py-4 mx-auto max-w-7xl lg:py-6 md:px-6">
+            <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+
+                @foreach ($categories as $category)
+
+                <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md transition dark:bg-white-900 dark:border-white-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600" href="/products?selected_categories[0]={{ $category->id }}"
+                    >
+                    <div class="p-4 md:p-5">
+                      <div class="flex justify-between items-center">
+                        <div class="flex items-center">
+                           
+                          <div class="ms-3">
+                            <h3 class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-black">
+                            {{$category->name}}
+                            </h3>
+                          </div>
+                        </div>
+                        <div class="ps-3">
+                          <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                  </a>
+                @endforeach
+
+
+
+                </div>
+              </div>
+              <br>
             <div class="flex flex-wrap mb-24 -mx-3">
                 <div class="w-full pr-2 lg:w-1/4 lg:block space-y-6">
                     {{-- Kategori --}}
@@ -113,7 +147,7 @@
                                             </span>
                                         </p>
                                     </div>
-                                    
+
                                     <div class="flex justify-center p-4 border-t border-black-300 dark:border-black-700">
 
                                         <a wire:click.prevent='addToCart({{ $product->id }})' href="#"

@@ -15,7 +15,7 @@ use App\Models\Category;
 #[Title('Products - FrozenFood')]
 class ProductsPage extends Component
 {
-    use WithPagination;  // Menambahkan kemampuan pagination
+    use WithPagination;
 
     // Properti yang digunakan untuk filter
     #[Url] public $selected_categories = [];

@@ -46,4 +46,15 @@ class Product extends Model
     {
         return $this->hasMany(ProductImage::class);
     }
+    public function render()
+{
+    $products = Product::with('category')->paginate(9);  // Pastikan kategori dimuat bersama produk
+
+    return view('livewire.products-page', [
+        'products' => $products,
+        'brands' => Brand::where('is_active', 1)->get(['id', 'name', 'slug']),
+        'categories' => Category::where('is_active', 1)->get(['id', 'name', 'slug']),
+    ]);
+}
+
 }
